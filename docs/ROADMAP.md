@@ -1,61 +1,51 @@
 # UNIVO Roadmap
 
-## Phase 1: Project foundation
+## Phase 1: Foundation
 
 - [x] Scaffold the project
-- [x] Add architecture and agent documentation
 - [x] Connect the frontend to the backend health check
+- [x] Add architecture and agent documentation
 
-## Phase 2: Landing page
+## Phase 2: Functional MVP
 
-- [ ] Landing page
-- [ ] Navigation
-- [ ] Accessibility-first UI
+- [x] Text input
+- [x] Gemini-backed text analysis
+- [x] Simple explanation
+- [x] Key points
+- [x] Step-by-step explanation
+- [x] Difficult word explanations
 
-## Phase 3: Authentication
+## Phase 3: UI/UX
 
-- [ ] Signup
-- [ ] Login
-- [ ] User profile
+- [ ] Implement designer-provided landing page
+- [ ] Implement designer-provided login
+- [ ] Implement dashboard
+- [ ] Implement communication interface
+- [ ] Implement accessibility settings
+- [ ] Implement animations
 
-## Phase 4: Accessibility preferences
+## Phase 4: Firebase
 
-- [ ] Text size
-- [ ] Simple language
-- [ ] Step-by-step explanations
-- [ ] Output format
-- [ ] High contrast
-- [ ] Reduced animations
-- [ ] Large buttons
-- [ ] Language preference
+- [ ] Authentication
+- [ ] User profiles
+- [ ] Accessibility preferences
+- [ ] Chat history
 
-## Phase 5: AI communication engine
-
-- [ ] Text simplification
-- [ ] Key points
-- [ ] Step-by-step explanation
-- [ ] Difficult word explanations
-
-## Phase 6: Speech
+## Phase 5: Speech
 
 - [ ] Speech-to-text
 - [ ] Text-to-speech
 
-## Phase 7: Translation
+## Phase 6: Translation
 
 - [ ] Translation workflow
 
-## Phase 8: Document and image input
+## Phase 7: Document and image input
 
 - [ ] Document input
 - [ ] Image input
 
-## Phase 9: Chat history and personalization
-
-- [ ] Chat history
-- [ ] Preference-aware personalization
-
-## Phase 10: Testing, polish, and demo preparation
+## Phase 8: Testing and hackathon polish
 
 - [ ] Automated tests
 - [ ] Accessibility review
