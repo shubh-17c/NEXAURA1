@@ -9,9 +9,9 @@ User input
   ↓
 Frontend input processing
   ↓
-Express API
+Express REST API
   ↓
-AI communication service
+Gemini communication service
   ↓
 User accessibility profile
   ↓
@@ -28,13 +28,16 @@ The frontend is responsible for presenting accessible controls, collecting expli
 - `server/` is an Express API.
 - `shared/` holds contracts used by both sides.
 - Vite serves the frontend on port 5000 and proxies `/api` to the backend on port 3001.
-- `GET /api/health` is the only implemented API route.
-- There is no database, authentication, AI provider, or external service.
+- `GET /api/health` verifies the backend.
+- `POST /api/analyze` validates input, calls the Gemini communication service, validates the model output, and returns the typed result.
+- Gemini credentials remain backend-only in environment variables.
+- There is no database, authentication, Firebase, or other external service.
 
 ## Boundaries and principles
 
 - Keep frontend and backend code clearly separated.
-- Keep AI integrations behind backend service interfaces.
+- Keep Gemini and future AI integrations behind backend service interfaces.
 - Adapt communication using stated user preferences; never diagnose disabilities.
 - Keep credentials in environment variables and never commit them.
+- Validate model responses before returning them to the frontend.
 - Prefer small, independently testable REST routes.

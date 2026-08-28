@@ -1,0 +1,289 @@
+We are now moving from the project scaffold to the FIRST FUNCTIONAL MVP FEATURE.
+
+IMPORTANT:
+Do NOT build the landing page.
+Do NOT build login/signup.
+Do NOT build Firebase Auth yet.
+Do NOT build the final UI.
+Do NOT add speech-to-text or text-to-speech yet.
+Do NOT add image/PDF processing yet.
+Do NOT redesign the existing project.
+
+We are ONLY implementing and testing the core AI communication engine.
+
+==================================================
+GOAL
+==================================================
+
+Build the first working version of our Inclusive Communication Assistant:
+
+USER INPUT
+↓
+BACKEND
+↓
+GEMINI
+↓
+STRUCTURED ACCESSIBILITY-ADAPTED RESPONSE
+↓
+FRONTEND
+
+The user should be able to enter a piece of complex text and receive:
+
+1. Simple explanation
+2. Key points
+3. Step-by-step explanation
+4. Difficult words explained
+
+This is the core MVP.
+
+==================================================
+AI PROVIDER
+==================================================
+
+Use Google's Gemini API.
+
+IMPORTANT:
+- Do NOT expose the Gemini API key in frontend code.
+- The API key must only be accessed by the backend.
+- Store it in an environment variable.
+- Update .env.example with the required variable name.
+- Never commit or hard-code the real key.
+- Do NOT create multiple API clients.
+- Do NOT add unnecessary AI libraries.
+
+If the project already contains an AI provider setup, inspect it first and reuse it where appropriate.
+
+Use a currently supported Gemini model that is available to the project/API key.
+
+If the exact model needs to be configured, put the model name in an environment variable so it can be changed without modifying application logic.
+
+==================================================
+CORE API
+==================================================
+
+Implement:
+
+POST /api/analyze
+
+Request:
+
+{
+  "text": "user supplied text"
+}
+
+Response:
+
+{
+  "simpleExplanation": "string",
+  "keyPoints": ["string"],
+  "steps": ["string"],
+  "difficultWords": [
+    {
+      "word": "string",
+      "meaning": "string"
+    }
+  ]
+}
+
+The backend should validate that text exists and is not empty.
+
+Return useful HTTP error responses if the request is invalid or the AI request fails.
+
+Do not expose the API key or internal error details to the client.
+
+==================================================
+AI PROMPT DESIGN
+==================================================
+
+Create a dedicated backend service for the communication transformation.
+
+Do NOT put the large AI prompt inside an Express route.
+
+The AI should be instructed that:
+
+You are an accessibility-focused communication assistant.
+
+Your task is NOT to change the meaning of the user's information.
+
+Transform complex information into clearer and more accessible language.
+
+Rules:
+
+- Preserve the original meaning.
+- Do not invent facts.
+- Do not remove important conditions, warnings, dates, numbers, or requirements.
+- Use simple, natural language.
+- Prefer short sentences.
+- Avoid unnecessary jargon.
+- Explain unavoidable technical/legal/academic terminology.
+- Make the result easy to scan.
+- Do not assume the user has a disability.
+- Do not diagnose or classify the user.
+- Do not give medical/legal/etc. advice beyond what is present in the source.
+- If the source is ambiguous, preserve the ambiguity rather than inventing an interpretation.
+
+Return ONLY structured JSON matching the required schema.
+
+==================================================
+IMPORTANT: PRESERVE INFORMATION
+==================================================
+
+This is NOT a generic summarizer.
+
+For example, if the source says:
+
+"Applicants must submit the required documents no later than 30 September. Applications received after this date will not be considered."
+
+The AI must preserve:
+
+- required documents
+- deadline
+- 30 September
+- consequence of missing the deadline
+
+It must not simplify away important information.
+
+==================================================
+FRONTEND TEST INTERFACE
+==================================================
+
+Create a VERY BASIC development interface.
+
+This is NOT the final UI.
+
+It should contain:
+
+- A textarea for entering text
+- An "Analyze" button
+- Loading state
+- Error state
+- Simple display of:
+  - Simple explanation
+  - Key points
+  - Steps
+  - Difficult words
+
+Keep the styling minimal.
+
+Do NOT create a design system.
+
+Do NOT add animations.
+
+Do NOT install a UI library unless one already exists and is necessary.
+
+The purpose of this page is simply to test the AI engine.
+
+==================================================
+FRONTEND/BACKEND CONNECTION
+==================================================
+
+Create a small frontend service for API communication.
+
+For example:
+
+client/src/services/api.ts
+
+The React component should call the service rather than directly containing fetch logic everywhere.
+
+Keep API communication separate from presentation.
+
+==================================================
+TYPE SAFETY
+==================================================
+
+Create shared TypeScript types for the analyze request and response.
+
+Avoid duplicating the same interfaces in multiple files.
+
+==================================================
+AI RESPONSE VALIDATION
+==================================================
+
+Do not blindly trust the model's response.
+
+Validate that the returned result has:
+
+- simpleExplanation
+- keyPoints array
+- steps array
+- difficultWords array
+
+If the model returns invalid data, handle it safely rather than crashing the server.
+
+Use the simplest reliable validation approach available in the existing project.
+
+Do not add a large validation framework unless genuinely necessary.
+
+==================================================
+DOCUMENTATION
+==================================================
+
+Update:
+
+README.md
+docs/AI_CONTEXT.md
+docs/API.md
+docs/ROADMAP.md
+docs/ARCHITECTURE.md
+
+Document:
+
+- Gemini is now the AI provider
+- POST /api/analyze now exists
+- Request/response structure
+- Environment variable required
+- How to test the AI
+- Current limitations
+- Which features are still planned
+
+Make AI_CONTEXT.md useful for another coding AI entering the project later.
+
+==================================================
+CREDIT-SAVING RULES
+==================================================
+
+VERY IMPORTANT:
+
+- Make the smallest implementation that works.
+- Do not refactor unrelated code.
+- Do not rewrite the project structure.
+- Do not install unnecessary packages.
+- Do not create unnecessary abstractions.
+- Do not implement future features.
+- Do not generate fake functionality.
+- Do not repeatedly retry failed API calls.
+- Do not add logging that dumps entire AI responses or user content.
+- Do not make automatic AI calls on page load.
+- Only call Gemini when the user clicks Analyze.
+
+==================================================
+TESTING
+==================================================
+
+After implementation:
+
+1. Start the backend.
+2. Start the frontend.
+3. Test GET /api/health.
+4. Test POST /api/analyze.
+5. Test an empty input and verify it is rejected.
+6. Test a realistic complex paragraph.
+7. Verify the response displays correctly.
+8. Verify there are no build/type errors.
+
+Do not spend time polishing the interface.
+
+==================================================
+FINAL REPORT
+==================================================
+
+At the end, report only:
+
+- Files created/changed
+- Dependencies added
+- Environment variables required
+- How to run it
+- Test/build result
+- Any errors or issues
+
+Do not implement anything beyond this request.

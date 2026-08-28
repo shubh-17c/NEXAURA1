@@ -14,10 +14,39 @@ Example response:
 
 ```json
 {
-  "status": "ok",
-  "service": "univo-api"
+  "status": "ok"
 }
 ```
+
+### `POST /api/analyze`
+
+Implemented. Sends complex text to the backend Gemini service and returns a structured accessibility-adapted response.
+
+Request:
+
+```json
+{
+  "text": "user supplied text"
+}
+```
+
+Response:
+
+```json
+{
+  "simpleExplanation": "string",
+  "keyPoints": ["string"],
+  "steps": ["string"],
+  "difficultWords": [
+    {
+      "word": "string",
+      "meaning": "string"
+    }
+  ]
+}
+```
+
+An empty or missing `text` returns `400`. Text longer than 20,000 characters returns `413`. Missing Gemini configuration returns `503`; provider failures and invalid model responses return safe `502` errors without exposing internal details.
 
 ## Planned endpoints
 
@@ -26,7 +55,6 @@ The following endpoints are planned and are **not implemented** unless noted abo
 | Method | Endpoint | Purpose |
 | --- | --- | --- |
 | `POST` | `/api/chat` | Send a message through the communication assistant |
-| `POST` | `/api/analyze` | Simplify, summarize, or structure supplied information |
 | `POST` | `/api/upload` | Accept a supported document or image for analysis |
 | `POST` | `/api/speech/transcribe` | Convert speech input to text |
 | `POST` | `/api/speech/synthesize` | Convert adapted text to speech |

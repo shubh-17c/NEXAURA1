@@ -16,9 +16,9 @@ body {
 }
 
 main {
-  width: min(42rem, calc(100% - 2rem));
+  width: min(48rem, calc(100% - 2rem));
   margin: 0 auto;
-  padding: 6rem 0;
+  padding: 3rem 0 5rem;
 }
 
 .eyebrow {
@@ -30,9 +30,9 @@ main {
 }
 
 h1 {
-  max-width: 36rem;
+  max-width: 42rem;
   margin: 0;
-  font-size: clamp(2.25rem, 6vw, 4rem);
+  font-size: clamp(2.25rem, 6vw, 3.5rem);
   line-height: 1.05;
 }
 
@@ -45,7 +45,7 @@ h1 {
 }
 
 .health-card {
-  max-width: 34rem;
+  max-width: 38rem;
   margin-top: 3rem;
   padding: 1.25rem;
   border: 1px solid #e2e8f0;
@@ -60,6 +60,98 @@ h2 {
 
 .health-card p {
   margin: 0.75rem 0 0;
+}
+
+.analyze-form {
+  display: grid;
+  gap: 0.75rem;
+  max-width: 38rem;
+  margin-top: 2rem;
+}
+
+label,
+h3 {
+  font-weight: 700;
+}
+
+textarea {
+  width: 100%;
+  resize: vertical;
+  padding: 0.75rem;
+  border: 1px solid #cbd5e1;
+  border-radius: 0.5rem;
+  color: inherit;
+  background: #ffffff;
+  font: inherit;
+  line-height: 1.5;
+}
+
+button {
+  width: fit-content;
+  padding: 0.65rem 1rem;
+  border: 0;
+  border-radius: 0.4rem;
+  color: #ffffff;
+  background: #2563eb;
+  cursor: pointer;
+  font: inherit;
+  font-weight: 700;
+}
+
+button:disabled {
+  cursor: wait;
+  opacity: 0.65;
+}
+
+.results {
+  max-width: 38rem;
+  margin-top: 2rem;
+  padding: 1.25rem;
+  border: 1px solid #e2e8f0;
+  border-radius: 0.75rem;
+  background: #ffffff;
+}
+
+.results h2 {
+  margin-bottom: 1.5rem;
+}
+
+.result-section + .result-section {
+  margin-top: 1.5rem;
+}
+
+.result-section h3 {
+  margin: 0 0 0.5rem;
+  font-size: 0.95rem;
+}
+
+.result-section p,
+.result-section ul,
+.result-section ol,
+.result-section dl {
+  margin: 0;
+  line-height: 1.6;
+}
+
+.result-section ul,
+.result-section ol {
+  padding-left: 1.5rem;
+}
+
+.word {
+  display: grid;
+  grid-template-columns: minmax(7rem, 0.35fr) 1fr;
+  gap: 1rem;
+  padding: 0.5rem 0;
+  border-top: 1px solid #f1f5f9;
+}
+
+.word dt {
+  font-weight: 700;
+}
+
+.word dd {
+  margin: 0;
 }
 
 .success {
