@@ -6,7 +6,6 @@ const router = Router();
 router.get("/health", (_request, response) => {
   const payload: HealthResponse = {
     status: "ok",
-    service: "univo-api",
   };
 
   response.json(payload);

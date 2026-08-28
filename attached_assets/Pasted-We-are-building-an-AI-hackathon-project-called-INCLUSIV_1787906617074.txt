@@ -1,0 +1,407 @@
+We are building an AI hackathon project called:
+
+INCLUSIVE COMMUNICATION ASSISTANT
+
+IMPORTANT:
+This is ONLY the initial technical scaffold.
+
+DO NOT build the landing page.
+DO NOT build login/signup.
+DO NOT build a dashboard.
+DO NOT design the UI.
+DO NOT implement the AI features yet.
+DO NOT implement Firebase yet.
+DO NOT add animations.
+DO NOT add fake/demo data.
+
+The UI/UX designer on our team will provide page designs separately later. We will implement those designs after the technical MVP foundation is working.
+
+==================================================
+1. PRODUCT
+==================================================
+
+Problem statement:
+
+"Information is often presented in formats that may be difficult for people with different communication or cognitive needs to understand.
+
+Create an AI system that transforms complex information into simpler, clearer, and more accessible formats based on user requirements."
+
+Our product is an AI-powered communication assistant that adapts information to the user's communication preferences.
+
+Planned features:
+
+- Complex text → simple language
+- Long text → key points
+- Step-by-step explanations
+- Difficult word explanations
+- Speech-to-text
+- Text-to-speech
+- Translation
+- Document/image input
+- Accessibility preferences
+- Personalized communication
+- Chat/history
+
+These features are NOT being implemented in this task.
+
+==================================================
+2. TECH STACK
+==================================================
+
+Frontend:
+- React
+- TypeScript
+- Vite
+
+Backend:
+- Node.js
+- Express
+- TypeScript
+
+Future:
+- Firebase Authentication
+- Cloud Firestore
+- Possibly Firebase Storage
+- AI API/provider
+- Speech services
+
+Use REST APIs between frontend and backend.
+
+IMPORTANT:
+Do not install unnecessary packages.
+Reuse existing packages/configuration if the Replit project already has them.
+Do not add a database or authentication yet.
+
+==================================================
+3. PROJECT ARCHITECTURE
+==================================================
+
+Create a clean structure similar to:
+
+/
+├── client/
+│   └── src/
+│       ├── components/
+│       ├── pages/
+│       ├── services/
+│       ├── hooks/
+│       ├── types/
+│       ├── utils/
+│       ├── App.tsx
+│       └── main.tsx
+│
+├── server/
+│   ├── routes/
+│   ├── services/
+│   ├── middleware/
+│   ├── types/
+│   └── index.ts
+│
+├── shared/
+│   └── types/
+│
+├── docs/
+│   ├── ARCHITECTURE.md
+│   ├── AI_CONTEXT.md
+│   ├── API.md
+│   └── ROADMAP.md
+│
+├── .env.example
+└── README.md
+
+If the existing Replit template has a different but functional structure, DO NOT unnecessarily rebuild it.
+
+Adapt the existing structure where possible.
+
+==================================================
+4. BACKEND
+==================================================
+
+Create a minimal Express + TypeScript backend.
+
+Implement ONLY:
+
+GET /api/health
+
+Return simple JSON confirming that the backend is running.
+
+Example:
+
+{
+  "status": "ok"
+}
+
+Do not implement any AI endpoints yet.
+
+Do not implement authentication yet.
+
+Do not implement Firebase yet.
+
+==================================================
+5. FRONTEND
+==================================================
+
+Create a minimal React + TypeScript frontend.
+
+It only needs to prove that the frontend can communicate with the backend.
+
+Create a very basic development/test view showing:
+
+- Application name
+- Backend connection status
+
+The UI does NOT need to look good.
+
+This is NOT the real dashboard.
+
+Keep it intentionally minimal because the UI/UX designer will provide the actual designs later.
+
+==================================================
+6. FUTURE FIREBASE ARCHITECTURE
+==================================================
+
+We will eventually use Firebase for:
+
+Firebase Authentication:
+- Login
+- Signup
+- User identity
+
+Cloud Firestore:
+- User profiles
+- Accessibility preferences
+- Chat history
+
+Potential Firebase Storage:
+- Uploaded documents/images
+
+Do NOT implement Firebase now.
+
+However, structure the application so Firebase can be added later without rewriting the entire frontend.
+
+Authentication and data-access logic should eventually live in dedicated services rather than being scattered through UI components.
+
+==================================================
+7. FUTURE AI ARCHITECTURE
+==================================================
+
+Eventually the application should follow:
+
+USER INPUT
+↓
+INPUT PROCESSING
+↓
+AI UNDERSTANDING
+↓
+USER ACCESSIBILITY PROFILE
+↓
+COMMUNICATION ADAPTATION
+↓
+OUTPUT
+
+The AI should adapt communication based on explicit user preferences.
+
+The AI must NOT diagnose disabilities.
+
+Keep future AI/API logic isolated inside backend services so the AI provider can be changed later without rewriting the frontend.
+
+Never hard-code API keys.
+
+Use environment variables for future API credentials.
+
+==================================================
+8. DOCUMENTATION
+==================================================
+
+This is VERY IMPORTANT.
+
+Create documentation specifically so another AI coding agent can understand this project without needing the original conversation.
+
+--------------------------------------------------
+README.md
+--------------------------------------------------
+
+Include:
+
+- Project name
+- Project description
+- Hackathon problem statement
+- Product vision
+- Current implementation status
+- Tech stack
+- How to run the project
+- Project structure
+- Environment variables
+- Development rules
+- What is NOT implemented yet
+
+--------------------------------------------------
+docs/AI_CONTEXT.md
+--------------------------------------------------
+
+This file is specifically for future AI coding agents.
+
+Explain:
+
+- What this project is
+- The hackathon problem
+- Product vision
+- Planned features
+- Current implementation status
+- Frontend architecture
+- Backend architecture
+- Future Firebase architecture
+- Future AI architecture
+- Where frontend code belongs
+- Where backend code belongs
+- Where services belong
+- Important design decisions
+- Rules for modifying the code
+- Do not unnecessarily rewrite existing architecture
+- Do not install unnecessary dependencies
+- Do not change working features without a reason
+- How to safely add a new feature
+- Known limitations
+
+Make this document practical for an AI agent entering the repository for the first time.
+
+--------------------------------------------------
+docs/ARCHITECTURE.md
+--------------------------------------------------
+
+Explain the intended architecture:
+
+Frontend
+↓
+REST API
+↓
+Backend services
+↓
+AI / Firebase / external services
+
+Explain the responsibility of each layer.
+
+--------------------------------------------------
+docs/API.md
+--------------------------------------------------
+
+Document the FUTURE API.
+
+Clearly mark endpoints as PLANNED unless actually implemented.
+
+Planned examples:
+
+POST /api/analyze
+POST /api/chat
+POST /api/upload
+POST /api/speech/transcribe
+POST /api/speech/synthesize
+POST /api/translate
+GET /api/history
+POST /api/preferences
+
+Only /api/health should actually exist right now.
+
+--------------------------------------------------
+docs/ROADMAP.md
+--------------------------------------------------
+
+Create this roadmap:
+
+PHASE 1 — Foundation
+- Project scaffold
+- Frontend/backend connection
+- Documentation
+
+PHASE 2 — Functional MVP
+- Text input
+- AI simplification
+- Key points
+- Step-by-step explanation
+- Difficult word explanations
+
+PHASE 3 — UI/UX
+- Implement designer-provided landing page
+- Implement designer-provided login
+- Implement dashboard
+- Implement communication interface
+- Implement accessibility settings
+- Implement animations
+
+PHASE 4 — Firebase
+- Authentication
+- User profiles
+- Accessibility preferences
+- Chat history
+
+PHASE 5 — Speech
+- Speech-to-text
+- Text-to-speech
+
+PHASE 6 — Translation
+
+PHASE 7 — Document/image input
+
+PHASE 8 — Testing and hackathon polish
+
+==================================================
+9. ENVIRONMENT VARIABLES
+==================================================
+
+Create .env.example with placeholders for future services.
+
+Do NOT put real credentials anywhere.
+
+Include placeholders for things such as:
+
+AI API key
+Firebase configuration
+Other future service credentials
+
+Clearly document that these are not currently required.
+
+==================================================
+10. CODE QUALITY
+==================================================
+
+Use TypeScript.
+
+Keep files small and understandable.
+
+Avoid unnecessary abstraction.
+
+Avoid unnecessary dependencies.
+
+Use clear naming.
+
+Do not create unused components or services just for the sake of filling folders.
+
+The project must run without TypeScript/build errors.
+
+==================================================
+11. FINAL CHECK
+==================================================
+
+Before finishing:
+
+1. Verify frontend runs.
+2. Verify backend runs.
+3. Verify GET /api/health works.
+4. Verify frontend can communicate with backend.
+5. Verify there are no build errors.
+6. Verify documentation exists.
+7. Do not add any features beyond this prompt.
+
+At the end, give me ONLY a concise report containing:
+
+- Files created/changed
+- Dependencies added
+- How to run the project
+- Build/test result
+- Any problems encountered
+
+Again:
+
+KEEP THIS IMPLEMENTATION MINIMAL.
+
+We are deliberately NOT building the actual product UI or AI functionality yet.
