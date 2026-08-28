@@ -1,0 +1,289 @@
+You are setting up the initial codebase for an AI hackathon project called "Inclusive Communication Assistant".
+
+IMPORTANT: This is ONLY the initial project scaffold. Do NOT build the landing page, login page, dashboard, AI functionality, or polished UI yet.
+
+CREDIT-SAVING RULES:
+- Make the smallest clean implementation possible.
+- Do NOT over-engineer.
+- Do NOT install unnecessary dependencies.
+- Do NOT add libraries unless they are genuinely required.
+- Do NOT generate placeholder features that we have not requested.
+- Do NOT call any AI/API service yet.
+- Do NOT create unnecessary components.
+- Do NOT spend time on visual design yet.
+- Before changing anything, inspect the existing Replit project structure.
+- Reuse existing dependencies/configuration if they already exist.
+- If the project is empty, create the structure below.
+- Do not repeatedly explain what you are doing; perform the setup.
+
+==================================================
+PROJECT GOAL
+==================================================
+
+We are building an AI-powered Inclusive Communication Assistant.
+
+Problem:
+Information is often presented in formats that may be difficult for people with different communication or cognitive needs to understand.
+
+Our system will transform complex information into simpler, clearer, and more accessible formats based on individual user preferences.
+
+Core future features include:
+1. Complex information → simple language
+2. Long information → concise key points
+3. Step-by-step explanations
+4. Speech-to-text
+5. Text-to-speech
+6. Language translation
+7. Accessibility preferences
+8. Personalized communication based on the user's preferences
+9. Document/image input
+10. Chat/history
+
+These features will be implemented later. For now, ONLY prepare the architecture.
+
+==================================================
+TECH STACK
+==================================================
+
+Use:
+
+Frontend:
+- React
+- TypeScript
+- Vite
+
+Backend:
+- Node.js
+- Express
+- TypeScript
+
+Use a simple REST API architecture.
+
+Keep frontend and backend clearly separated.
+
+Do NOT add a database yet unless the existing Replit template already requires one.
+
+Do NOT add authentication yet.
+
+==================================================
+DESIRED STRUCTURE
+==================================================
+
+Create a clean structure similar to:
+
+/
+├── client/
+│   ├── src/
+│   │   ├── components/
+│   │   ├── pages/
+│   │   ├── services/
+│   │   ├── hooks/
+│   │   ├── types/
+│   │   ├── utils/
+│   │   ├── App.tsx
+│   │   └── main.tsx
+│   └── ...
+│
+├── server/
+│   ├── routes/
+│   ├── services/
+│   ├── middleware/
+│   ├── types/
+│   └── index.ts
+│
+├── shared/
+│   └── types/
+│
+├── docs/
+│   ├── ARCHITECTURE.md
+│   ├── AI_CONTEXT.md
+│   ├── API.md
+│   └── ROADMAP.md
+│
+├── .env.example
+├── README.md
+└── package.json
+
+If the existing Replit setup uses a slightly different structure, preserve the working setup and adapt this architecture rather than unnecessarily rebuilding the project.
+
+==================================================
+DOCUMENTATION IS VERY IMPORTANT
+==================================================
+
+Create documentation specifically so that another AI coding agent can enter this project later and understand it quickly.
+
+README.md must contain:
+- Project name
+- One-paragraph description
+- Problem statement
+- Current status
+- Tech stack
+- How to run the project
+- Project structure
+- Environment variables
+- Development rules
+- What has NOT been implemented yet
+
+docs/AI_CONTEXT.md must be written specifically for future AI coding agents.
+
+Include:
+- What the application is
+- The product vision
+- Core features
+- Current implementation status
+- Architecture
+- Important design decisions
+- Where frontend code belongs
+- Where backend code belongs
+- Where AI/API integrations will eventually belong
+- Rules for modifying the code
+- Things an AI agent must NOT change unnecessarily
+- How to safely add a new feature
+- Current known limitations
+
+docs/ARCHITECTURE.md:
+Explain the frontend → backend → AI service architecture we intend to build.
+
+docs/API.md:
+Document the planned API structure, but DO NOT implement all of these endpoints yet.
+
+Planned endpoints can include examples such as:
+
+POST /api/chat
+POST /api/analyze
+POST /api/upload
+POST /api/speech/transcribe
+POST /api/speech/synthesize
+POST /api/translate
+GET /api/history
+POST /api/preferences
+
+Clearly mark these as PLANNED unless they actually exist.
+
+docs/ROADMAP.md:
+Create a simple development roadmap:
+
+PHASE 1:
+Project foundation
+- scaffold
+- documentation
+- basic frontend/backend connection
+
+PHASE 2:
+Landing page
+- landing page
+- navigation
+- accessibility-first UI
+
+PHASE 3:
+Authentication
+- signup
+- login
+- user profile
+
+PHASE 4:
+Accessibility preferences
+- text size
+- simple language
+- step-by-step explanations
+- output format
+- high contrast
+- reduced animations
+- large buttons
+- language preference
+
+PHASE 5:
+AI communication engine
+- text simplification
+- key points
+- step-by-step explanation
+- difficult word explanations
+
+PHASE 6:
+Speech
+- speech-to-text
+- text-to-speech
+
+PHASE 7:
+Translation
+
+PHASE 8:
+Document/image input
+
+PHASE 9:
+Chat history and personalization
+
+PHASE 10:
+Testing, polish and demo preparation
+
+==================================================
+ARCHITECTURE PRINCIPLES
+==================================================
+
+The application should eventually follow this conceptual flow:
+
+USER INPUT
+↓
+INPUT PROCESSING
+↓
+AI UNDERSTANDING
+↓
+USER ACCESSIBILITY PROFILE
+↓
+COMMUNICATION ADAPTATION
+↓
+OUTPUT
+↓
+USER FEEDBACK / CHAT LOOP
+
+The AI should NOT diagnose disabilities.
+
+The application adapts communication based on explicit user preferences and needs.
+
+Keep AI logic isolated in backend services so that the AI provider/model can be changed later without rewriting the frontend.
+
+Do not hard-code API keys.
+
+Use environment variables for future API credentials.
+
+==================================================
+INITIAL IMPLEMENTATION
+==================================================
+
+For this task ONLY:
+
+1. Set up the project structure.
+2. Make sure frontend and backend can run.
+3. Add a minimal backend health-check endpoint:
+   GET /api/health
+
+It should return a simple JSON response confirming the backend is running.
+
+4. Make the frontend able to reach the backend health endpoint.
+5. Add basic TypeScript types/interfaces where useful.
+6. Add all requested documentation.
+7. Add .env.example with placeholders only.
+8. Make sure the project builds/runs without errors.
+
+DO NOT:
+- Build landing page
+- Build login
+- Build dashboard
+- Build chatbot
+- Implement AI
+- Implement speech
+- Implement translation
+- Implement file uploads
+- Implement database
+- Implement authentication
+- Add fake data
+- Add unnecessary UI
+
+At the end, briefly report:
+- Files created/changed
+- Dependencies added
+- How to run the project
+- Whether the build succeeds
+- Any issues that remain
+
+Do not make additional feature changes beyond this request.

@@ -1,0 +1,1 @@
+- [Validated Replit config](replit-config.md) — protected `.replit` files must be replaced through Replit’s validation flow rather than edited directly.
